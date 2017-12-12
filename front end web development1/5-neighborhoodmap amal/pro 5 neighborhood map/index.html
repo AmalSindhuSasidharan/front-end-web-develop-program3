@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/lib/knockout-3.2.0.js"></script>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8" id="mapview" style="width: 100%; height: 100%;position: absolute;">
+            </div>
+
+
+            <div class="col-md-4">
+                <div><strong>NEIGHBORHOOD MAP</strong></div><br><br>
+                <div>
+                    <div>
+                        <input type="text" placeholder="search here please...." data-bind="textInput: searchTerm,valueUpdate: 'afterkeydown'">
+                    </div>
+                    <div data-bind="foreach:filteredList">
+                        <div data-bind="text:title,click:$parent.listclick"></div>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <script src="js/app.js"></script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDiKFNMFScgAJmrCx5mX8r4WMHMzelMa00&v=3&callback=initMap" onerror="googleError()">
+        </script>
+
+</body>
+
+</html>
